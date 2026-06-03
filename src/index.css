@@ -1245,6 +1245,8 @@ section {
   cursor: pointer;
   transition: all 0.3s ease;
   margin: 0 6px;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .flickity-page-dots .dot.is-selected {
@@ -1252,6 +1254,7 @@ section {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
   transform: scale(1.2);
+  vertical-align: middle;
 }
 
 .flickity-page-dots .dot:hover {
