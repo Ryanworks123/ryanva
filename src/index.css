@@ -1360,3 +1360,562 @@ section {
     margin: 0 4px;
   }
 }
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Better touch targets */
+  button,
+  a,
+  .cta-primary,
+  .cta-secondary {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Improved spacing for mobile */
+  .portfolio {
+    gap: 32px;
+  }
+
+  section {
+    padding: 24px 20px;
+  }
+
+  /* Better font sizes for mobile */
+  .hero-copy h1 {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .hero-copy p {
+    font-size: 1rem;
+  }
+
+  /* Mobile-friendly hero section */
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-visual {
+    min-height: 300px;
+  }
+
+  /* Improved carousel for mobile */
+  .flickity-viewport {
+    height: 450px;
+  }
+
+  /* Better card spacing */
+  .card,
+  .service-card,
+  .skill-card,
+  .project-card {
+    padding: 20px;
+  }
+
+  /* Mobile-friendly contact cards */
+  .contact-card {
+    padding: 20px;
+  }
+
+  .contact-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Better form inputs for mobile */
+  .contact-form input,
+  .contact-form textarea {
+    padding: 16px;
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+
+  /* Improved footer for mobile */
+  .site-footer {
+    padding: 32px 20px 48px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    width: 100%;
+    padding: 12px 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small mobile optimizations */
+  #root {
+    width: 100%;
+    padding: 20px 0 32px;
+  }
+
+  .portfolio {
+    gap: 24px;
+  }
+
+  section {
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  /* Smaller fonts for very small screens */
+  .hero-copy h1 {
+    font-size: clamp(1.75rem, 10vw, 2rem);
+  }
+
+  .hero-copy p {
+    font-size: 0.95rem;
+  }
+
+  /* Compact cards for small screens */
+  .card,
+  .service-card,
+  .skill-card,
+  .project-card,
+  .cert-card,
+  .training-card,
+  .feedback-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  /* Better spacing for grids */
+  .services-grid,
+  .skills-grid,
+  .projects-grid,
+  .certifications-grid,
+  .training-grid,
+  .feedback-grid,
+  .why-grid {
+    gap: 16px;
+  }
+
+  /* Mobile-optimized carousel */
+  .flickity-viewport {
+    height: 400px;
+  }
+
+  .hero-card-glass {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  /* Touch-friendly buttons */
+  .cta-primary,
+  .cta-secondary {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* Compact contact section */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-card {
+    padding: 16px;
+  }
+
+  /* Better form for mobile */
+  .contact-form-section {
+    padding: 0 16px;
+  }
+
+  .contact-form {
+    gap: 12px;
+  }
+
+  .contact-form button {
+    width: 100%;
+    padding: 16px;
+  }
+
+  /* Improved stats section */
+  .stats-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stat-card h3 {
+    font-size: 1.5rem;
+  }
+
+  /* Better values grid */
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .value-card {
+    padding: 16px;
+  }
+
+  /* Mobile tools grid */
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .tool-badge {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .cta-primary:hover,
+  .cta-secondary:hover,
+  .why-card:hover,
+  .tool-pill:hover {
+    transform: none;
+  }
+
+  /* Add active states for touch */
+  .cta-primary:active,
+  .cta-secondary:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  /* Better tap targets */
+  a,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent text selection on mobile for better app-like feel */
+@media (max-width: 768px) {
+  .cta-primary,
+  .cta-secondary,
+  .flickity-button,
+  .tool-badge,
+  .skill-tag {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Smooth scroll behavior for mobile */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Hide scrollbar for cleaner mobile look */
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Mobile-specific animations */
+@media (max-width: 768px) {
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-card-glass {
+    animation: slideInUp 0.4s ease-out;
+  }
+}
+
+/* ============================================
+   MOBILE NAVIGATION STYLES
+   ============================================ */
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 248, 245, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(178, 34, 34, 0.16);
+  padding: 12px 20px;
+}
+
+.mobile-nav-toggle {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 1001;
+  background: var(--accent);
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.3);
+}
+
+.mobile-nav-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(178, 34, 34, 0.4);
+}
+
+.mobile-nav-toggle:active {
+  transform: scale(0.95);
+}
+
+.mobile-nav-toggle svg {
+  font-size: 1.2rem;
+}
+
+.mobile-nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 248, 245, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 80px 20px 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-nav-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-link {
+  width: 100%;
+  max-width: 300px;
+  padding: 16px 24px;
+  background: white;
+  border: 1px solid rgba(178, 34, 34, 0.16);
+  border-radius: 12px;
+  color: var(--text-strong);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-nav-link:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.3);
+}
+
+.mobile-nav-link:active {
+  transform: translateY(0);
+}
+
+/* Show mobile navigation only on mobile devices */
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: block;
+  }
+
+  /* Add top padding to portfolio to account for fixed nav */
+  .portfolio {
+    padding-top: 60px;
+  }
+}
+
+/* Overlay when menu is open */
+.mobile-nav-menu::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.mobile-nav-menu.open::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================
+   MOBILE-SPECIFIC FEATURES
+   ============================================ */
+
+/* Tap-to-call button styling */
+.tap-to-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.3);
+}
+
+.tap-to-call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(178, 34, 34, 0.4);
+}
+
+.tap-to-call:active {
+  transform: scale(0.98);
+}
+
+/* Mobile-specific email link */
+.contact-card a[href^="mailto"] {
+  word-break: break-all;
+}
+
+/* Better mobile form experience */
+@media (max-width: 768px) {
+  .contact-form input,
+  .contact-form textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 12px;
+  }
+
+  /* Prevent iOS zoom on input focus */
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    font-size: 16px !important;
+  }
+
+  /* Better mobile button sizing */
+  .cta-primary,
+  .cta-secondary,
+  .contact-form button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Mobile-friendly card interactions */
+@media (max-width: 768px) {
+  .service-card,
+  .skill-card,
+  .project-card,
+  .cert-card,
+  .training-card,
+  .feedback-card,
+  .why-card,
+  .contact-card {
+    transition: transform 0.2s ease;
+  }
+
+  .service-card:active,
+  .skill-card:active,
+  .project-card:active,
+  .cert-card:active,
+  .training-card:active,
+  .feedback-card:active,
+  .why-card:active,
+  .contact-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Mobile scroll indicator */
+@media (max-width: 768px) {
+  .scroll-indicator {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(178, 34, 34, 0.4);
+    cursor: pointer;
+    z-index: 998;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+
+  .scroll-indicator:hover {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+
+  .scroll-indicator svg {
+    font-size: 1.2rem;
+  }
+}
+
+/* Hide scroll indicator on desktop */
+@media (min-width: 769px) {
+  .scroll-indicator {
+    display: none;
+  }
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FaEnvelope, FaClock, FaPhone, FaLinkedin, FaFacebook, FaInstagram, FaBriefcase, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaEnvelope, FaClock, FaPhone, FaLinkedin, FaFacebook, FaInstagram, FaBriefcase, FaMapMarkerAlt, FaBars, FaTimes, FaArrowUp } from 'react-icons/fa'
 import Flickity from 'react-flickity-component'
 import 'flickity/css/flickity.css'
 import './App.css'
@@ -187,16 +187,61 @@ function handleContactSubmit(e) {
 }
 
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id)
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' })
       window.history.replaceState(null, '', `#${id}`)
+      setMobileMenuOpen(false)
     }
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const navLinks = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'services', label: 'Services' },
+    { id: 'projects', label: 'Portfolio' },
+    { id: 'contact', label: 'Contact' },
+  ]
+
   return (
     <div className="portfolio">
+      {/* Mobile Navigation */}
+      <nav className="mobile-nav">
+        <button 
+          className="mobile-nav-toggle"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle navigation"
+        >
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+        <div className={`mobile-nav-menu ${mobileMenuOpen ? 'open' : ''}`}>
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => scrollToSection(link.id)}
+              className="mobile-nav-link"
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
+      </nav>
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="hero-copy">
@@ -230,6 +275,12 @@ function App() {
                 y2: 0,
                 x3: 65,
               },
+              // Mobile-friendly options
+              draggable: true,
+              freeScroll: false,
+              touchVerticalThreshold: 0,
+              selectedAttraction: 0.025,
+              friction: 0.28,
             }}
             reloadOnChange
             static
@@ -570,7 +621,7 @@ function App() {
               <FaPhone className="contact-icon" />
             </div>
             <strong>Phone</strong>
-            <a href="tel:+63">+63 9455105552</a>
+            <a href="tel:+639455105552" className="tap-to-call">+63 9455105552</a>
           </article>
           <article className="contact-card card">
             <div className="contact-icon-wrapper">
@@ -617,6 +668,17 @@ function App() {
           </div>
         </div>
       </footer>
+      
+      {/* Scroll to Top Button (Mobile) */}
+      {showScrollTop && (
+        <button 
+          className="scroll-indicator"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp />
+        </button>
+      )}
     </div>
   )
 }
