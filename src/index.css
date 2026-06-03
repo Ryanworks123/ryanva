@@ -1253,7 +1253,6 @@ section {
   background: var(--accent);
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-  transform: scale(1.2);
   vertical-align: middle;
 }
 
