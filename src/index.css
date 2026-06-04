@@ -1804,29 +1804,6 @@ section {
    MOBILE-SPECIFIC FEATURES
    ============================================ */
 
-/* Tap-to-call button styling */
-.tap-to-call {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
-  color: white;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.3);
-}
-
-.tap-to-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(178, 34, 34, 0.4);
-}
-
-.tap-to-call:active {
-  transform: scale(0.98);
-}
-
 /* Mobile-specific email link */
 .contact-card a[href^="mailto"] {
   word-break: break-all;

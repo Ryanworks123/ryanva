@@ -621,7 +621,7 @@ function App() {
               <FaPhone className="contact-icon" />
             </div>
             <strong>Phone</strong>
-            <a href="tel:+639455105552" className="tap-to-call">+63 9455105552</a>
+            <a href="tel:+639455105552">+63 9455105552</a>
           </article>
           <article className="contact-card card">
             <div className="contact-icon-wrapper">
