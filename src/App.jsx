@@ -159,36 +159,12 @@ const tools = [
   'HubSpot', 'Freshdesk', 'Zapier', 'Evernote', 'Monday.com', 'Wave',
 ]
 
-function handleContactSubmit(e) {
-  e.preventDefault()
-  const form = e.target
-  const formData = Object.fromEntries(new FormData(form))
-  
-  fetch('/api/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData),
-  })
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        alert('Message sent! I\'ll get back to you within 2 hours.')
-        form.reset()
-      } else {
-        alert('Something went wrong. Please try again.')
-      }
-    })
-    .catch(err => {
-      console.error(err)
-      alert('Error sending message. Please try again.')
-    })
-}
-
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' | 'error' | null
+  const [submitMessage, setSubmitMessage] = useState('')
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id)
@@ -201,6 +177,70 @@ function App() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault()
+    const form = e.target
+    const formData = Object.fromEntries(new FormData(form))
+
+    // Prevent duplicate submissions
+    if (isSubmitting) return
+
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    setSubmitMessage('')
+
+    try {
+      // Optimistic UI update - show sending state immediately
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 15000) // 15 second timeout
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        signal: controller.signal,
+      })
+
+      clearTimeout(timeoutId)
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const data = await response.json()
+
+      if (data.success) {
+        // Success - show success message and reset form
+        setSubmitStatus('success')
+        setSubmitMessage(data.message || 'Message sent successfully!')
+        form.reset()
+
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus(null)
+          setSubmitMessage('')
+        }, 5000)
+      } else {
+        // Error from API
+        setSubmitStatus('error')
+        setSubmitMessage(data.error || 'Failed to send message. Please try again.')
+      }
+    } catch (error) {
+      // Network error or timeout
+      console.error('Contact form error:', error)
+      setSubmitStatus('error')
+      setSubmitMessage(
+        error.name === 'AbortError'
+          ? 'Request timed out. Please check your connection and try again.'
+          : 'Network error. Please check your connection and try again.'
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   useEffect(() => {
@@ -642,10 +682,26 @@ function App() {
         <div className="contact-form-section">
           <h3>Send a message</h3>
           <form className="contact-form" onSubmit={handleContactSubmit}>
-            <input name="name" type="text" placeholder="Your Name" required autoComplete="name" />
-            <input name="email" type="email" placeholder="Your Email" required autoComplete="email" />
-            <textarea name="message" placeholder="Tell me about your VA needs..." rows="5" required autoComplete="off"></textarea>
-            <button type="submit" className="cta-primary">Send Message</button>
+            <input name="name" type="text" placeholder="Your Name" required autoComplete="name" disabled={isSubmitting} />
+            <input name="email" type="email" placeholder="Your Email" required autoComplete="email" disabled={isSubmitting} />
+            <textarea name="message" placeholder="Tell me about your VA needs..." rows="5" required autoComplete="off" disabled={isSubmitting}></textarea>
+            
+            {submitStatus && (
+              <div className={`form-message ${submitStatus}`}>
+                {submitMessage}
+              </div>
+            )}
+            
+            <button type="submit" className="cta-primary" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <span className="button-content">
+                  <span className="spinner"></span>
+                  Sending...
+                </span>
+              ) : (
+                'Send Message'
+              )}
+            </button>
           </form>
         </div>
       </section>
