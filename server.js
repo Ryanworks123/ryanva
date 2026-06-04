@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import contactRoutes from './routes/contact.js'
+import contactHandler from './api/contact.js'
 
 dotenv.config()
 
@@ -13,8 +13,11 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Routes
-app.use('/api', contactRoutes)
+// Routes - use the same handler as Vercel
+app.post('/api/contact', async (req, res) => {
+  // Create mock req/res objects for the handler
+  await contactHandler(req, res)
+})
 
 // Health check
 app.get('/api/health', (req, res) => {
