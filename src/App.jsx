@@ -94,37 +94,48 @@ const sampleProjects = [
 
 const certifications = [
   {
+    title: 'On-the-Job Training at MAKOTEK Computer Sales Inc.',
+    issuer: '540 hours of hands-on training in computer sales and technical support.',
+  },
+  {
     title: 'Windows Server 2012 Training',
-    issuer: 'Learned server management, configuration, and system administration fundamentals.',
+    issuer: 'ltfreetraining - 9 hours and 24 minutes',
   },
   {
-    title: 'Active Directory Training ',
-    issuer: 'Gained knowledge in user account management, directory services, and network administration.',
+    title: 'Active Directory',
+    issuer: 'ltfreetraining - 14 hours and 51 minutes',
   },
   {
-    title: 'SQL & Database Fundamentals',
-    issuer: 'Studied database concepts, SQL queries, data organization, and database management.',
+    title: 'Introduction to the Fundamentals of Databases',
+    issuer: 'Certificate of Completion',
+  },
+  {
+    title: 'Databases with SQL',
+    issuer: 'CS50 - Certificate of Completion',
   },
   {
     title: 'MongoDB Database Training',
-    issuer: 'Learned NoSQL database structures, collections, and data management techniques.',
+    issuer: '11 hours - Certificate of Completion',
+  },
+  {
+    title: 'PHP for Web Development',
+    issuer: 'CodeMy - 2 hours and 33 minutes',
+  },
+  {
+    title: 'JavaScript Programming',
+    issuer: 'Bro Code - 8 hours',
+  },
+  {
+    title: 'HTML and CSS',
+    issuer: 'Telugu - 9 hours and 7 minutes',
+  },
+  {
+    title: 'School Voting Management System',
+    issuer: 'Certificate of Recognition - College Students Elections',
   },
 ]
 
-const training = [
-  {
-    title: 'Online VA Bootcamp',
-    description: 'Comprehensive virtual assistant training covering admin tasks, client management, and business systems.',
-  },
-  {
-    title: 'Tool Mastery Programs',
-    description: 'Hands-on training in Notion, Asana, Google Workspace, Canva, and email management systems.',
-  },
-  {
-    title: 'Communication & Soft Skills',
-    description: 'Professional communication, email etiquette, time management, and client relationship building.',
-  },
-]
+const training = []
 
 const feedback = [
   {
