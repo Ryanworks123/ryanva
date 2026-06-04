@@ -5,13 +5,12 @@ import nodemailer from 'nodemailer'
 
 dotenv.config()
 
-const app = express()
 const router = express.Router()
 
 // Middleware
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+router.use(cors())
+router.use(express.json())
+router.use(express.urlencoded({ extended: true }))
 
 // Email configuration
 const transporter = nodemailer.createTransport({
@@ -28,7 +27,7 @@ const transporter = nodemailer.createTransport({
 })
 
 // Contact form endpoint
-router.post('/contact', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { name, email, message } = req.body
 
@@ -96,18 +95,10 @@ router.post('/contact', async (req, res) => {
   }
 })
 
-// Health check
-router.get('/health', (req, res) => {
-  res.json({ status: 'Backend is running' })
-})
-
-app.use('/api', router)
-
 // Error handling
-app.use((err, req, res, next) => {
+router.use((err, req, res, next) => {
   console.error(err.stack)
   res.status(500).json({ error: 'Something went wrong!' })
 })
 
-// Export for Vercel serverless function
-export default app
+export default router
