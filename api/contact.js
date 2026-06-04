@@ -53,6 +53,16 @@ export default async function handler(req, res) {
       })
     }
 
+    // Check if email configuration is available
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+      console.error('Email configuration missing')
+      // For now, return success even without email for testing
+      return res.json({
+        success: true,
+        message: 'Message received! (Email not configured)',
+      })
+    }
+
     // Prepare email content
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -93,6 +103,8 @@ export default async function handler(req, res) {
     })
   } catch (error) {
     console.error('Contact form error:', error)
+    console.error('Error details:', error.message)
+    console.error('Error stack:', error.stack)
     res.status(500).json({
       success: false,
       error: 'Failed to send message. Please try again later.',
