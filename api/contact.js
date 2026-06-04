@@ -1,22 +1,10 @@
-import express from 'express'
-import cors from 'cors'
-import dotenv from 'dotenv'
 import nodemailer from 'nodemailer'
-
-dotenv.config()
-
-const router = express.Router()
-
-// Middleware
-router.use(cors())
-router.use(express.json())
-router.use(express.urlencoded({ extended: true }))
 
 // Email configuration
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-  port: Number(process.env.EMAIL_PORT) || 465,
-  secure: true,
+  port: Number(process.env.EMAIL_PORT) || 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD,
@@ -26,8 +14,25 @@ const transporter = nodemailer.createTransport({
   },
 })
 
-// Contact form endpoint
-router.post('/', async (req, res) => {
+export default async function handler(req, res) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end()
+    return
+  }
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' })
+  }
+
   try {
     const { name, email, message } = req.body
 
@@ -93,12 +98,4 @@ router.post('/', async (req, res) => {
       error: 'Failed to send message. Please try again later.',
     })
   }
-})
-
-// Error handling
-router.use((err, req, res, next) => {
-  console.error(err.stack)
-  res.status(500).json({ error: 'Something went wrong!' })
-})
-
-export default router
+}
