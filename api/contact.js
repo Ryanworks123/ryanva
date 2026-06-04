@@ -56,10 +56,9 @@ export default async function handler(req, res) {
     // Check if email configuration is available
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
       console.error('Email configuration missing')
-      // For now, return success even without email for testing
-      return res.json({
-        success: true,
-        message: 'Message received! (Email not configured)',
+      return res.status(500).json({
+        success: false,
+        error: 'Email service not configured. Please contact administrator.',
       })
     }
 
