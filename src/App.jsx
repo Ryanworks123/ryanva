@@ -642,9 +642,9 @@ function App() {
         <div className="contact-form-section">
           <h3>Send a message</h3>
           <form className="contact-form" onSubmit={handleContactSubmit}>
-            <input name="name" type="text" placeholder="Your Name" required />
-            <input name="email" type="email" placeholder="Your Email" required />
-            <textarea name="message" placeholder="Tell me about your VA needs..." rows="5" required></textarea>
+            <input name="name" type="text" placeholder="Your Name" required autoComplete="name" />
+            <input name="email" type="email" placeholder="Your Email" required autoComplete="email" />
+            <textarea name="message" placeholder="Tell me about your VA needs..." rows="5" required autoComplete="off"></textarea>
             <button type="submit" className="cta-primary">Send Message</button>
           </form>
         </div>
