@@ -4,6 +4,7 @@ import Flickity from 'react-flickity-component'
 import 'flickity/css/flickity.css'
 import './App.css'
 import CVButton from './pages/CV'
+import Slideshow from './pages/Slideshow'
 
 function LiveClock() {
   const [time, setTime] = useState(new Date())
@@ -579,6 +580,9 @@ function App() {
           </p>
         </div>
       </section>
+
+      {/* Photo Gallery */}
+      <Slideshow />
 
       {/* Stats Highlight */}
       <section className="stats-section">
