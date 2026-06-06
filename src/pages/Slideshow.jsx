@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 function Slideshow() {
+  // Image paths pointing to the portfolio folder in public directory
+  // Using absolute paths starting with '/' to access public folder assets
   const images = [
     '/portfolio/photo_2026-06-06_22-41-41.jpg',
     '/portfolio/photo_2026-06-06_22-41-44.jpg',
@@ -30,18 +32,22 @@ function Slideshow() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 
-  const nextSlide = () => {
+  // useCallback to prevent stale closure issues in useEffect
+  // This ensures the functions always have access to the latest state
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-  }
+  }, [images.length])
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
-  }
+  }, [images.length])
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
     setCurrentIndex(index)
-  }
+  }, [])
 
+  // Autoplay effect with pause-on-hover functionality
+  // Fixed: Added nextSlide to dependency array to prevent stale closures
   useEffect(() => {
     if (!isPaused) {
       const interval = setInterval(() => {
@@ -49,7 +55,7 @@ function Slideshow() {
       }, 4500)
       return () => clearInterval(interval)
     }
-  }, [isPaused])
+  }, [isPaused, nextSlide])
 
   return (
     <section className="slideshow-section">
@@ -69,16 +75,27 @@ function Slideshow() {
               className={`slide ${index === currentIndex ? 'active' : ''}`}
             >
               <div className="slide-overlay"></div>
-              <img src={image} alt={`Gallery photo ${index + 1}`} />
+              {/* Added onError handler to detect image loading issues */}
+              <img 
+                src={image} 
+                alt={`Gallery photo ${index + 1}`} 
+                onError={(e) => {
+                  console.error(`Failed to load image: ${image}`)
+                  e.target.style.display = 'none'
+                }}
+              />
             </div>
           ))}
         </div>
+        {/* Previous button - fixed to use useCallback function */}
         <button className="slideshow-nav prev" onClick={prevSlide} aria-label="Previous slide">
           ‹
         </button>
+        {/* Next button - fixed to use useCallback function */}
         <button className="slideshow-nav next" onClick={nextSlide} aria-label="Next slide">
           ›
         </button>
+        {/* Dot indicators - fixed to use useCallback function */}
         <div className="slideshow-dots">
           {images.map((_, index) => (
             <button
