@@ -31,64 +31,64 @@ export default App
 
 const services = [
   {
-    title: '📧 Admin Support',
-    description: 'Document management, file organization, email handling',
-    items: ['Email', 'Documents', 'Files', 'Data entry'],
+    title: '� PC Troubleshooting',
+    description: 'Diagnose and resolve hardware and software issues',
+    items: ['Hardware Repair', 'Software Support', 'System Diagnostics'],
   },
   {
-    title: '📅 Calendar Management',
-    description: 'Appointment coordination, scheduling, reminders',
-    items: ['Scheduling', 'Calendar', 'Meetings'],
+    title: '� Computer Assembly',
+    description: 'Build and configure custom computers and systems',
+    items: ['PC Assembly', 'Component Installation', 'System Setup'],
   },
   {
-    title: '🔍 Research',
-    description: 'Online research, competitor analysis, data collection',
-    items: ['Research', 'Analysis', 'Data'],
+    title: '� CCTV Installation',
+    description: 'Install and configure surveillance systems',
+    items: ['Camera Setup', 'DVR Configuration', 'Cabling'],
   },
   {
-    title: '🤝 Customer Support',
-    description: 'Inquiry handling, client communication, follow-ups',
-    items: ['Support', 'Communication', 'Follow-ups'],
+    title: '🛒 Technical Sales',
+    description: 'Assist customers in selecting the right technology products',
+    items: ['Product Consultation', 'Needs Assessment', 'Recommendations'],
   },
   {
-    title: '📊 Data Management',
-    description: 'Spreadsheet management, database updates, reporting',
-    items: ['Spreadsheets', 'Databases', 'Reports'],
+    title: '🤝 Customer Service',
+    description: 'Provide excellent after-sales technical support',
+    items: ['Technical Support', 'Inquiry Handling', 'Follow-up Support'],
   },
   {
-    title: '💻 Tech Support',
-    description: 'Basic troubleshooting, software setup, documentation',
-    items: ['Troubleshooting', 'Setup', 'Documentation'],
+    title: '⚙️ System Installation',
+    description: 'Install and configure operating systems and software',
+    items: ['OS Installation', 'Software Setup', 'System Maintenance'],
   },
 ]
 
 const skills = [
-  { category: 'Organization', items: ['Task prioritization', 'Time management', 'Workflow'] },
-  { category: 'Communication', items: ['Written communication', 'Email etiquette', 'Detail-oriented'] },
-  { category: 'Technical', items: ['Quick-learning', 'Google Workspace', 'Data management'] },
-  { category: 'Problem-Solving', items: ['Process improvement', 'Self-directed', 'Adaptable'] },
+  { category: 'Technical Sales', items: ['Product Consultation', 'Customer Needs Assessment', 'Product Recommendations'] },
+  { category: 'Customer Service', items: ['Relationship Management', 'Inquiry Handling', 'Follow-up Support'] },
+  { category: 'Technical Support', items: ['PC Troubleshooting', 'Hardware Repair', 'Software Support'] },
+  { category: 'System Administration', items: ['Computer Assembly', 'System Installation', 'CCTV Configuration'] },
 ]
 
 const sampleProjects = [
   {
-    title: 'Email Management System',
-    description: 'Built email organization with filters, labels, and automated rules. Reduced inbox clutter by 80%.',
-    skills: ['Gmail', 'Process', 'Documentation'],
+    title: 'CCTV Surveillance System Overhaul',
+    description: 'Completed 14-day field assignment at Charles Grocery Store in Puerto, Cagayan de Oro City. Successfully troubleshot, repaired, and reconfigured 64 CCTV cameras and DVR systems to ensure reliable surveillance operations and enhanced security coverage.',
+    skills: ['CCTV Installation', 'DVR Configuration', 'Troubleshooting', 'System Maintenance'],
   },
   {
-    title: 'Lead Generation',
-    description: 'Researched 500+ qualified leads across 3 industries with contact info and personalization.',
-    skills: ['Research', 'Data entry', 'Spreadsheets'],
+    title: 'IT Internship - MAKOTEK Computer Sales',
+    description: 'Completed 540-hour internship working in both Technical and Sales Departments. Performed PC troubleshooting, computer assembly, software installation, system maintenance, hardware compatibility assessment, and provided after-sales technical support to customers.',
+    skills: ['PC Assembly', 'System Installation', 'Technical Support', 'Hardware Repair'],
   },
   {
-    title: 'Customer Support Workflow',
-    description: 'Created ticket management system with templates and follow-up reminders.',
-    skills: ['Documentation', 'Customer service', 'Templates'],
+    title: 'Technical Sales & Product Consultation',
+    description: 'Assisted customers in selecting laptops, desktops, and computer components based on their needs and budget. Conducted hardware compatibility assessments, provided product recommendations, and delivered after-sales support to ensure customer satisfaction.',
+    skills: ['Technical Sales', 'Product Consultation', 'Customer Service', 'Hardware Assessment'],
   },
   {
-    title: 'Social Media Coordination',
-    description: 'Planned and scheduled social media posts with engagement analytics.',
-    skills: ['Canva', 'Social media', 'Analytics'],
+    title: 'Full-Stack Web Development',
+    description: 'Built responsive web applications using React.js for frontend and Node.js for backend. Implemented API integration, database connectivity, and modern user interfaces with clean, professional design patterns.',
+    skills: ['React.js', 'Node.js', 'API Integration', 'Database Management'],
   },
 ]
 
@@ -127,44 +127,42 @@ const vaServices = [
 
 const certifications = [
   {
-    title: 'On-the-Job Training - MAKOTEK',
-    issuer: '540 hours - Computer sales & technical support',
+    title: 'On-the-Job Training Completion',
+    issuer: 'MAKOTEK Computer Sales Inc. - 540 Hours',
   },
   {
-    title: 'Windows Server 2012',
-    issuer: 'ltfreetraining - 9h 24m',
+    title: 'Windows Server 2012 Training',
+    issuer: 'ltfreetraining - 9 hours 24 minutes',
   },
   {
-    title: 'Active Directory',
-    issuer: 'ltfreetraining - 14h 51m',
+    title: 'Active Directory Training',
+    issuer: 'ltfreetraining - 14 hours 51 minutes',
   },
   {
-    title: 'Database Fundamentals',
+    title: 'Introduction to the Fundamentals of Databases',
     issuer: 'Certificate of Completion',
   },
   {
-    title: 'SQL Databases',
-    issuer: 'CS50 - Certificate',
+    title: 'School Voting Management System',
+    issuer: 'Certificate of Recognition - College Students Elections',
+  },
+]
+
+const education = [
+  {
+    degree: 'Bachelor of Science in Information Technology',
+    institution: 'Misamis Oriental Institute of Science and Technology Inc.',
+    period: '2025–2026',
   },
   {
-    title: 'MongoDB',
-    issuer: '11 hours - Certificate',
+    degree: 'Business Administration Management',
+    institution: 'Talisayan National Senior High School',
+    period: '2021–2022',
   },
   {
-    title: 'PHP Development',
-    issuer: 'CodeMy - 2h 33m',
-  },
-  {
-    title: 'JavaScript',
-    issuer: 'Bro Code - 8 hours',
-  },
-  {
-    title: 'HTML & CSS',
-    issuer: 'Telugu - 9h 7m',
-  },
-  {
-    title: 'School Voting System',
-    issuer: 'Certificate of Recognition',
+    degree: 'Secondary Education',
+    institution: "St. Mary's Academy of Carmen",
+    period: '2015–2020',
   },
 ]
 
@@ -186,12 +184,12 @@ const feedback = [
 ]
 
 const values = [
-  'Reliable follow-through',
-  'Clear communication',
-  'Fast learning',
-  'Attention to detail',
-  'Flexible support',
-  'Organized systems',
+  'Technical expertise',
+  'Customer service',
+  'Problem solving',
+  'Team collaboration',
+  'Hardware knowledge',
+  'Software support',
 ]
 
 const tools = [
@@ -343,9 +341,9 @@ function App() {
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="hero-copy">
-          <span className="eyebrow">Virtual Assistant</span>
-          <h1>Customer support, technology & administrative assistance</h1>
-          <p>Detail-oriented VA skilled in communication, organization, and problem-solving. Helping businesses stay productive and focused on growth.</p>
+          <span className="eyebrow">IT Professional</span>
+          <h1>Technical Support, Technical Sales & Technology Solutions</h1>
+          <p>Information Technology graduate with hands-on experience in technical sales, customer service, hardware and software support, PC assembly, troubleshooting, system installation, and CCTV configuration. Helping businesses with reliable technical solutions.</p>
           <div className="hero-actions">
             <a href="#contact" className="cta-primary">Get Started</a>
             <a href="#services" className="cta-secondary">Services</a>
@@ -393,21 +391,21 @@ function App() {
                   <img src="Gwapo.png" alt="Professional avatar placeholder" className="profile-avatar" />
                 </div>
                 <div className="card-content">
-                  <h3>Professional Profile</h3>
-                  <p className="card-subtitle">Customer Support | Admin | Tech-Savvy</p>
-                  <p>IT graduate with customer support, technical assistance, and administrative experience. Helping businesses stay organized and productive.</p>
+                  <h3>Ryan John H. Roferos</h3>
+                  <p className="card-subtitle">IT Graduate | Technical Support | Technical Sales</p>
+                  <p>Information Technology graduate with hands-on experience in technical sales, customer service, hardware and software support, PC assembly, troubleshooting, and CCTV configuration.</p>
                   <div className="card-stats">
                     <div className="stat">
                       <strong>540 Hours OJT</strong>
-                      <span>Tech & Sales</span>
+                      <span>MAKOTEK Computer Sales</span>
                     </div>
                     <div className="stat">
-                      <strong>MS Office</strong>
-                      <span>Excel • Word • PPT</span>
+                      <strong>Location</strong>
+                      <span>Carmen, Cagayan de Oro</span>
                     </div>
                     <div className="stat">
-                      <strong>Tech</strong>
-                      <span>HTML • CSS • JS • SQL</span>
+                      <strong>Specialization</strong>
+                      <span>Tech Support & Sales</span>
                     </div>
                   </div>
                 </div>
@@ -423,10 +421,10 @@ function App() {
                 <div className="card-content">
                   <h3>Core Competencies</h3>
                   <ul className="strengths-list">
-                    <li><span className="icon">✓</span>Customer Support</li>
-                    <li><span className="icon">✓</span>Problem Solving</li>
-                    <li><span className="icon">✓</span>Fast Learning</li>
-                    <li><span className="icon">✓</span>Attention to Detail</li>
+                    <li><span className="icon">✓</span>Technical Sales</li>
+                    <li><span className="icon">✓</span>PC Troubleshooting</li>
+                    <li><span className="icon">✓</span>CCTV Installation</li>
+                    <li><span className="icon">✓</span>Customer Service</li>
                   </ul>
                 </div>
               </div>
@@ -439,16 +437,16 @@ function App() {
                   <span className="badge">🛠️ Tools</span>
                 </div>
                 <div className="card-content">
-                  <h3>Software Proficiency</h3>
+                  <h3>Technical Proficiency</h3>
                   <div className="tools-preview">
-                    <span className="tool-pill">Google Workspace</span>
-                    <span className="tool-pill">MS Office</span>
-                    <span className="tool-pill">Gmail</span>
-                    <span className="tool-pill">React</span>
-                    <span className="tool-pill">Canva</span>
-                    <span className="tool-pill">+ 12 more</span>
+                    <span className="tool-pill">PC Assembly</span>
+                    <span className="tool-pill">System Installation</span>
+                    <span className="tool-pill">CCTV Config</span>
+                    <span className="tool-pill">Hardware Repair</span>
+                    <span className="tool-pill">Software Support</span>
+                    <span className="tool-pill">+ More</span>
                   </div>
-                  <p className="tools-note">Comfortable with MS Office, databases, web technologies, and learning new platforms.</p>
+                  <p className="tools-note">Skilled in hardware compatibility assessment, troubleshooting, and after-sales technical support.</p>
                 </div>
               </div>
             </div>
@@ -463,20 +461,20 @@ function App() {
                   <h3>Certifications</h3>
                   <div className="certs-list">
                     <div className="cert-item">
-                      <strong>Customer Support</strong>
-                      <small>Communication, Inquiries</small>
+                      <strong>OJT Completion</strong>
+                      <small>540 Hours - MAKOTEK</small>
                     </div>
                     <div className="cert-item">
-                      <strong>Google Workspace</strong>
-                      <small>Email, Calendar, Docs</small>
+                      <strong>Windows Server 2012</strong>
+                      <small>9h 24m Training</small>
                     </div>
                     <div className="cert-item">
-                      <strong>Technical Support</strong>
-                      <small>Troubleshooting</small>
+                      <strong>Active Directory</strong>
+                      <small>14h 51m Training</small>
                     </div>
                     <div className="cert-item">
-                      <strong>Admin Skills</strong>
-                      <small>MS Office, Docs</small>
+                      <strong>Database Fundamentals</strong>
+                      <small>Certificate</small>
                     </div>
                   </div>
                 </div>
@@ -517,13 +515,13 @@ function App() {
         <div className="about-content">
           <h2>About Me</h2>
           <p>
-            IT graduate with customer support, technical assistance, and administrative experience. I help businesses stay organized through reliable virtual assistance and attention to detail.
+            Information Technology graduate with hands-on experience in technical sales, customer service, hardware and software support, PC assembly, troubleshooting, system installation, CCTV installation and configuration, hardware compatibility assessment, and after-sales technical support.
           </p>
           <p>
-            I offer a free trial task so you can experience my work quality before commitment. I'm building a reputation as someone you can trust and rely on.
+            I completed a 540-hour internship at MAKOTEK Computer Sales Inc., where I worked in both the Technical and Sales Departments. In the Technical Department, I diagnosed and troubleshot PC hardware and software issues, assisted in computer assembly, system installation and maintenance, installed and configured CCTV systems including cameras, DVRs, and cabling, provided technical recommendations regarding hardware compatibility and upgrades, and supported after-sales technical inquiries.
           </p>
           <p>
-            Organized, responsive, and invested in your success. I learn quickly, ask clarifying questions, and over-communicate to ensure nothing falls through the cracks.
+            In the Sales Department, I assisted customers in selecting laptops, desktops, and computer components, answered product inquiries, explained features based on customer needs, built rapport with walk-in customers, provided follow-up support, and stayed updated on stock availability, specifications, and pricing to make relevant recommendations.
           </p>
         </div>
       </section>
@@ -531,16 +529,16 @@ function App() {
       {/* Stats Highlight */}
       <section className="stats-section">
         <article className="stat-card">
-          <h3>Problem Solver</h3>
-          <p>Finds efficient solutions to everyday challenges.</p>
+          <h3>Technical Expert</h3>
+          <p>Skilled in PC troubleshooting, hardware repair, and system installation.</p>
         </article>
         <article className="stat-card">
-          <h3>Customer-Oriented</h3>
-          <p>Committed to excellent service and support.</p>
+          <h3>Customer-Focused</h3>
+          <p>Experienced in technical sales and after-sales technical support.</p>
         </article>
         <article className="stat-card">
-          <h3>Fast Learner</h3>
-          <p>Quickly adapts to new tools, systems, and client needs.</p>
+          <h3>CCTV Specialist</h3>
+          <p>Proficient in CCTV installation, configuration, and maintenance.</p>
         </article>
       </section>
 
@@ -642,6 +640,20 @@ function App() {
         </div>
       </section>
 
+      {/* Education */}
+      <section className="certifications-section">
+        <h2>Education</h2>
+        <div className="certifications-grid">
+          {education.map((edu) => (
+            <article key={edu.degree} className="cert-card card">
+              <h3>{edu.degree}</h3>
+              <p className="cert-issuer">{edu.institution}</p>
+              <p className="cert-skills">{edu.period}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Training Programs Completed */}
       <section className="training-section">
         <h2>Training & Development</h2>
@@ -714,7 +726,7 @@ function App() {
       {/* Contact Section */}
       <section id="contact" className="contact-section">
         <h2>Let's Work Together</h2>
-        <p className="contact-intro">Ready to get your admin under control? Send me a message.</p>
+        <p className="contact-intro">Ready to solve your technical support needs? Send me a message.</p>
         <div className="contact-grid">
           <article className="contact-card card">
             <div className="contact-icon-wrapper">
@@ -728,7 +740,7 @@ function App() {
               <FaPhone className="contact-icon" />
             </div>
             <strong>Phone</strong>
-            <a href="tel:+639455105552">+63 9455105552</a>
+            <a href="tel:+63955105552">+63 955 105 552</a>
           </article>
           <article className="contact-card card">
             <div className="contact-icon-wrapper">
@@ -736,7 +748,7 @@ function App() {
             </div>
             <strong>Timezone</strong>
             <LiveClock />
-            <p style={{ marginTop: '10px', fontSize: '0.9rem', color: 'var(--muted)' }}>Mindanao, Philippines</p>
+            <p style={{ marginTop: '10px', fontSize: '0.9rem', color: 'var(--muted)' }}>Carmen, Cagayan de Oro City, Misamis Oriental</p>
           </article>
           <article className="contact-card card">
             <div className="contact-icon-wrapper">
@@ -751,7 +763,7 @@ function App() {
           <form className="contact-form" onSubmit={handleContactSubmit}>
             <input name="name" type="text" placeholder="Name" required autoComplete="name" disabled={isSubmitting} />
             <input name="email" type="email" placeholder="Email" required autoComplete="email" disabled={isSubmitting} />
-            <textarea name="message" placeholder="Your VA needs..." rows="5" required autoComplete="off" disabled={isSubmitting}></textarea>
+            <textarea name="message" placeholder="Your technical support needs..." rows="5" required autoComplete="off" disabled={isSubmitting}></textarea>
             
             {submitStatus && (
               <div className={`form-message ${submitStatus}`}>
@@ -776,8 +788,9 @@ function App() {
         <div className="container">
           <div className="footer-container">
             <div className="footer-left">
-              <h3>Ryan Roferos</h3>
-              <p className="footer-copy">© 2026 Ryan Roferos. All rights reserved.</p>
+              <h3>Ryan John H. Roferos</h3>
+              <p className="footer-copy">Carmen, Cagayan de Oro City, Misamis Oriental</p>
+              <p className="footer-copy">© 2026 Ryan John H. Roferos. All rights reserved.</p>
             </div>
             <div className="footer-right">
               <ul className="footer-links" aria-label="Footer links">
