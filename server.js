@@ -15,8 +15,14 @@ app.use(express.urlencoded({ extended: true }))
 
 // Routes - use the same handler as Vercel
 app.post('/api/contact', async (req, res) => {
-  // Create mock req/res objects for the handler
-  await contactHandler(req, res)
+  try {
+    await contactHandler(req, res)
+  } catch (error) {
+    console.error('API handler error:', error)
+    if (!res.headersSent) {
+      res.status(500).json({ error: 'Internal server error' })
+    }
+  }
 })
 
 // Health check
@@ -25,11 +31,10 @@ app.get('/api/health', (req, res) => {
 })
 
 // Error handling
-app.use((err, req, res, next) => {
-  console.error(err.stack)
+app.use((err, req, res) => {
   res.status(500).json({ error: 'Something went wrong!' })
 })
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`)
+  // Server started successfully
 })

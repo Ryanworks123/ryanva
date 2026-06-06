@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FaEnvelope, FaClock, FaPhone, FaLinkedin, FaFacebook, FaInstagram, FaBriefcase, FaMapMarkerAlt, FaBars, FaTimes, FaArrowUp } from 'react-icons/fa'
+import { FaEnvelope, FaClock, FaPhone, FaBars, FaTimes, FaArrowUp } from 'react-icons/fa'
 import Flickity from 'react-flickity-component'
 import 'flickity/css/flickity.css'
 import './App.css'
@@ -341,7 +341,6 @@ function App() {
       }
     } catch (error) {
       // Network error or timeout
-      console.error('Contact form error:', error)
       setSubmitStatus('error')
       setSubmitMessage(
         error.name === 'AbortError'

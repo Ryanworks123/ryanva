@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 function Slideshow() {
   // Image paths pointing to the portfolio folder in public directory
@@ -75,12 +75,11 @@ function Slideshow() {
               className={`slide ${index === currentIndex ? 'active' : ''}`}
             >
               <div className="slide-overlay"></div>
-              {/* Added onError handler to detect image loading issues */}
+              {/* Error handler to hide broken images gracefully */}
               <img 
                 src={image} 
                 alt={`Gallery photo ${index + 1}`} 
                 onError={(e) => {
-                  console.error(`Failed to load image: ${image}`)
                   e.target.style.display = 'none'
                 }}
               />
