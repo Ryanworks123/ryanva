@@ -3,6 +3,7 @@ import { FaEnvelope, FaClock, FaPhone, FaLinkedin, FaFacebook, FaInstagram, FaBr
 import Flickity from 'react-flickity-component'
 import 'flickity/css/flickity.css'
 import './App.css'
+import CVButton from './pages/CV'
 
 function LiveClock() {
   const [time, setTime] = useState(new Date())
@@ -194,24 +195,76 @@ const values = [
 
 const tools = [
   {
-    category: 'Admin Support',
-    items: ['Email', 'Calendar', 'Data Entry', 'Documents'],
-  },
-  {
+    name: 'Gmail',
+    url: 'https://mail.google.com',
     category: 'Communication',
-    items: ['Gmail', 'Google Meet', 'Zoom'],
+    icon: '📧',
   },
   {
+    name: 'Google Meet',
+    url: 'https://meet.google.com',
+    category: 'Communication',
+    icon: '📹',
+  },
+  {
+    name: 'Zoom',
+    url: 'https://zoom.us',
+    category: 'Communication',
+    icon: '🎥',
+  },
+  {
+    name: 'Google Docs',
+    url: 'https://docs.google.com',
     category: 'Productivity',
-    items: ['Google Docs', 'Google Sheets', 'Excel', 'Word', 'PowerPoint'],
+    icon: '📝',
   },
   {
+    name: 'Google Sheets',
+    url: 'https://sheets.google.com',
+    category: 'Productivity',
+    icon: '📊',
+  },
+  {
+    name: 'Microsoft Excel',
+    url: 'https://www.microsoft.com/en-us/microsoft-365/excel',
+    category: 'Productivity',
+    icon: '📈',
+  },
+  {
+    name: 'Microsoft Word',
+    url: 'https://www.microsoft.com/en-us/microsoft-365/word',
+    category: 'Productivity',
+    icon: '📄',
+  },
+  {
+    name: 'Microsoft PowerPoint',
+    url: 'https://www.microsoft.com/en-us/microsoft-365/powerpoint',
+    category: 'Productivity',
+    icon: '📽️',
+  },
+  {
+    name: 'Canva',
+    url: 'https://www.canva.com',
     category: 'Creative & Research',
-    items: ['Canva', 'Research', 'Lead Research', 'Data Gathering'],
+    icon: '🎨',
   },
   {
+    name: 'React.js',
+    url: 'https://react.dev',
     category: 'Tech Support',
-    items: ['Customer Service', 'Troubleshooting', 'Inquiries', 'Files', 'Tasks'],
+    icon: '⚛️',
+  },
+  {
+    name: 'Node.js',
+    url: 'https://nodejs.org',
+    category: 'Tech Support',
+    icon: '🟢',
+  },
+  {
+    name: 'Windows Server',
+    url: 'https://www.microsoft.com/en-us/cloud/windows-server',
+    category: 'Tech Support',
+    icon: '🪟',
   },
 ]
 
@@ -347,6 +400,7 @@ function App() {
           <div className="hero-actions">
             <a href="#contact" className="cta-primary">Get Started</a>
             <a href="#services" className="cta-secondary">Services</a>
+            <CVButton />
           </div>
         </div>
 
@@ -671,15 +725,19 @@ function App() {
       <section className="tools-section">
         <h2>Tools & Software Proficiency</h2>
         <div className="tools-grid">
-          {tools.map((toolGroup) => (
-            <article key={toolGroup.category} className="tool-category-card card">
-              <h3>{toolGroup.category}</h3>
-              <ul>
-                {toolGroup.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
+          {tools.map((tool) => (
+            <a
+              key={tool.name}
+              href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tool-card card"
+              aria-label={`Visit ${tool.name} website`}
+            >
+              <div className="tool-icon">{tool.icon}</div>
+              <h3>{tool.name}</h3>
+              <p className="tool-category">{tool.category}</p>
+            </a>
           ))}
         </div>
       </section>
