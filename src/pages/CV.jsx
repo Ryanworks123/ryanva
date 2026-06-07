@@ -1,14 +1,15 @@
 
 function CVButton() {
   const handleViewCV = () => {
-    window.open('/CV.pdf', '_blank')
+    // Add timestamp to prevent caching
+    window.open(`/CV.pdf?t=${Date.now()}`, '_blank')
   }
 
   return (
-    <a 
-      href="/CV.pdf" 
-      target="_blank" 
-      rel="noopener noreferrer" 
+    <a
+      href={`/CV.pdf?t=${Date.now()}`}
+      target="_blank"
+      rel="noopener noreferrer"
       className="cta-secondary"
       onClick={(e) => {
         e.preventDefault()
